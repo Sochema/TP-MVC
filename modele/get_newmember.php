@@ -10,7 +10,7 @@ function PDOconnect(){
   }
 }
 
-
+PDOconnect();
 
 $req = $bdd -> prepare('INSERT INTO membre(pseudo, mdp, mail, date_inscription) VALUES (:pseudo, :mdp, :mail, CURDATE())');
 $req-> execute(array(
@@ -18,3 +18,9 @@ $req-> execute(array(
   "mdp" => $pass_mdp,
   "mail"=> $mail
 ));
+
+$donnees = $req -> fetchAll();
+
+
+
+//fichier qui ne comporte que les requêtes
