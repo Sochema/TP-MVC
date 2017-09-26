@@ -1,20 +1,25 @@
 <?php
-require "../modele/get_newnember.php";
+require_once("../modele/get_newmember.php");
 
-//validité des informations
-if (isset($_POST['pseudo'], $_POST['mail'], $_POST['mdp'])){
+//récupérer les variables
+if (isset($_POST['pseudo'], $_POST['email'], $_POST['mdp'])){
+  var_dump($_POST);
   $pseudo = htmlspecialchars($_POST['pseudo']);
-  $mail = htmlspecialchars($_POST['mail']);
+  $mail = htmlspecialchars($_POST['email']);
+  $mdpverif = $_POST['mdpverif'];
+  $mdp = $_POST['mdp'];
 
-//hachage du mot de passe
-  $pass_hache = sha1($_POST['mdp']);
-    if ($pseudo ) {
-      //effectue la requête qui insert
+//Hachage mot de passe
+  $pass_mdp = sha1($_POST['mdp']);
 
-    }
+//vérification des infos et conditions
+
+if (checkPseudo($pseudo)){
+    echo "<p>Pseudo already taken!</p>"
+  } else {
+    if()
+  }
 }
 
 
 include "../vue/newmember.php";
-
- ?>
